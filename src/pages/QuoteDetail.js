@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Outlet } from "react-router-dom";
 
 function QuoteDetail() {
   const params = useParams();
@@ -7,6 +7,7 @@ function QuoteDetail() {
     <>
       <h1>Quote Detail Page</h1>
       <p>{params.quoteId}</p>
+      <Outlet />
     </>
   );
 }
