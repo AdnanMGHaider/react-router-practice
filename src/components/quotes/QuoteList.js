@@ -26,7 +26,16 @@ const QuoteList = (props) => {
   const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
 
   const changeSortingHandler = () => {
-    navigate("/quotes?sort=" + (isSortingAscending ? "desc" : "asc"));
+    // navigate(location.pathname, {
+    //   search: `?sort=${isSortingAscending ? "desc" : "asc"}`,
+    // });
+    //The 3 lines of code above are shown in the github repo of this project but don't work
+    navigate({
+      pathname: location.pathname,
+      search: `?sort=${isSortingAscending ? "desc" : "asc"}`,
+    });
+    // navigate(`${location.pathname}?sort=${isSortingAscending ? "desc" : "asc"}`);
+    //The line of the code above is the initial version which is not very easy to read
   };
 
   return (
